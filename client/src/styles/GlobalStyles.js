@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { COLORS } from '../constants/colors';
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -12,7 +13,8 @@ const GlobalStyles = createGlobalStyle`
   }
   body{
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Manrope', sans-serif;
+    background-color: ${COLORS.bgColor}
   }
   a{
     text-decoration: none;
@@ -23,6 +25,15 @@ const GlobalStyles = createGlobalStyle`
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0;
+  }
+  h1{
+    font-family: 'Big Shoulders Display';
+    font-weight: 900;
+    font-size: 3rem;
+  }
+  p{
+    font-size: 1rem;
+    margin: .5rem 0;
   }
 `;
 

@@ -1,4 +1,17 @@
 import { useApi } from '../../hooks/useApi';
+import ButtonUser from '../button-user/ButtonUser';
+import {
+	StyledUser,
+	StyledUsers,
+	StyledIcon,
+	StyledName,
+	StyledUserName,
+	StyledUserText,
+	StyledUserContainer,
+	StyledButtons,
+	StyledOnline,
+	StyledTrash
+} from './styles';
 
 const UsersList = () => {
 	const { data } = useApi();
@@ -6,19 +19,25 @@ const UsersList = () => {
 	if (data.length === 0) return <h1>No results found</h1>;
 
 	return (
-		<div>
+		<StyledUsers>
 			{data.map(user => (
-				<div key={user.userId}>
-					<img src={user.profileImage} alt='' />
-					<h2>{user.name}</h2>
-					<p>@{user.username}</p>
-					<p>{user.active.toString()}</p>
-					<button>Show details</button>
-					<button>Edit</button>
-					<button>Delete</button>
-				</div>
+				<StyledUser key={user.userId}>
+					<StyledUserContainer>
+						<StyledIcon src={user.profileImage} alt='' />
+						<StyledUserText>
+							<StyledName>{user.name}</StyledName>
+							<StyledUserName>@{user.username}</StyledUserName>
+						</StyledUserText>
+					</StyledUserContainer>
+					<StyledButtons>
+						<StyledOnline>{user.active ? 'Online' : 'Offline'}</StyledOnline>
+						<ButtonUser text='Details' />
+						<ButtonUser text='Edit' />
+						<StyledTrash src='../../../public/trash-duotone.svg' alt='' />
+					</StyledButtons>
+				</StyledUser>
 			))}
-		</div>
+		</StyledUsers>
 	);
 };
 
