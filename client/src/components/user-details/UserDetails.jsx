@@ -1,24 +1,31 @@
-// import { useApi } from '../../hooks/useApi';
+import { useApi } from '../../hooks/useApi';
 import {
 	StyledUser,
 	StyledImage,
 	StyledUserData,
 	StyledOnline,
-	StyledUserName
+	StyledUserName,
+	StyledDiv,
+	StyledName,
+	StyledText
 } from './styles';
 
 const UserDetails = () => {
-	// const { data } = useApi();
+	const { dataUser } = useApi();
+	if (dataUser.length === 0) return 
+	console.log(dataUser);
 	return (
-		<StyledUser>
-			<StyledImage src='../../../public/logo.svg' alt='' />
+		<StyledUser >
+			<StyledDiv>
+			<StyledImage src={dataUser.profileImage} alt='' />
 			<StyledUserData>
-				<StyledOnline>online</StyledOnline>
 				<StyledUserName>@carles_fay22</StyledUserName>
+				<StyledOnline>online</StyledOnline>
 			</StyledUserData>
-			<h2>Carles Méndez</h2>
-			<p>Carles.King30@yahoo.com</p>
-			<p>25 años</p>
+			</StyledDiv>
+			<StyledName>Carles Méndez</StyledName>
+			<StyledText>Carles.King30@yahoo.com</StyledText>
+			<StyledText>25 años</StyledText>
 		</StyledUser>
 	);
 };
