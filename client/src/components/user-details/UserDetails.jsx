@@ -1,3 +1,4 @@
+
 import { useApi } from '../../hooks/useApi';
 import {
 	StyledUser,
@@ -11,13 +12,13 @@ import {
 } from './styles';
 
 const UserDetails = () => {
-	const { dataUser } = useApi();
-	if (dataUser.length === 0) return 
+	const { dataUser} = useApi();
+	if (dataUser.length === 0) return <h1>No data</h1>;
 	console.log(dataUser);
 	return (
 		<StyledUser >
 			<StyledDiv>
-			<StyledImage src={dataUser.profileImage} alt='' />
+			<StyledImage src='' alt='' />
 			<StyledUserData>
 				<StyledUserName>@carles_fay22</StyledUserName>
 				<StyledOnline>online</StyledOnline>

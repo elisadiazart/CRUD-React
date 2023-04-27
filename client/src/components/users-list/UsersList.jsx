@@ -14,10 +14,10 @@ import {
 } from './styles';
 
 const UsersList = () => {
-	const { data, fetchData, dataUser, setDataUser} = useApi();
+	const { data, fetchData, setDataUser} = useApi();
 
 	if (data.length === 0) return <h1>No results found</h1>;
-	console.log(dataUser);
+	
 	
 	
 	return (

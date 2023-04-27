@@ -5,7 +5,9 @@ export const useApi = () => {
 	const [urlToFetch, setUrlToFetch] = useState(
 		'http://localhost:3000/api/users/'
 	);
+
 	const [dataUser, setDataUser] = useState('');
+	const [urlToFetchUser, setUrlToFetchUser] = useState('');
 
 	useEffect(() => {
 		fetchData(urlToFetch, setData);
@@ -17,5 +19,5 @@ export const useApi = () => {
 		setData(data);
 	};
 
-	return { data, fetchData, setDataUser, dataUser };
+	return { data, fetchData, setDataUser, dataUser, setUrlToFetchUser };
 };
