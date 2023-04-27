@@ -1,3 +1,4 @@
+
 import { useApi } from '../../hooks/useApi';
 import ButtonUser from '../button-user/ButtonUser';
 import {
@@ -14,11 +15,9 @@ import {
 } from './styles';
 
 const UsersList = () => {
-	const { data, fetchData, setDataUser} = useApi();
+	const { data, setUrlToFetchUser} = useApi();
 
 	if (data.length === 0) return <h1>No results found</h1>;
-	
-	
 	
 	return (
 		<StyledUsers>
@@ -33,7 +32,7 @@ const UsersList = () => {
 					</StyledUserContainer>
 					<StyledButtons>
 						<StyledOnline>{user.active ? 'Online' : 'Offline'}</StyledOnline>
-						<ButtonUser HandleClick={() => fetchData(`http://localhost:3000/api/users/${user.userId}`, setDataUser)} text='Details' />
+						<ButtonUser HandleClick={() => setUrlToFetchUser(`http://localhost:3000/api/users/${user.userId}`)} text='Details' />
 						<ButtonUser text='Edit' />
 						<StyledTrash src='../../../public/trash-duotone.svg' alt='' />
 					</StyledButtons>

@@ -13,20 +13,24 @@ import {
 
 const UserDetails = () => {
 	const { dataUser} = useApi();
+	
 	if (dataUser.length === 0) return <h1>No data</h1>;
-	console.log(dataUser);
+	
+
+	
 	return (
 		<StyledUser >
 			<StyledDiv>
-			<StyledImage src='' alt='' />
+			<StyledImage src={dataUser.profileImage} alt='' />
 			<StyledUserData>
-				<StyledUserName>@carles_fay22</StyledUserName>
-				<StyledOnline>online</StyledOnline>
+				<StyledUserName>@{dataUser.username
+}</StyledUserName>
+				<StyledOnline>{dataUser.active ? 'Online' : 'Offline'}</StyledOnline>
 			</StyledUserData>
 			</StyledDiv>
-			<StyledName>Carles Méndez</StyledName>
-			<StyledText>Carles.King30@yahoo.com</StyledText>
-			<StyledText>25 años</StyledText>
+			<StyledName>{dataUser.name}</StyledName>
+			<StyledText>{dataUser.email}</StyledText>
+			<StyledText>{dataUser.age}años</StyledText>
 		</StyledUser>
 	);
 };

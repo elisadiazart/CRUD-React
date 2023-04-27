@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS, COLORS_USER_CARD } from '../../constants/colors';
+import { COLORS_USER_CARD } from '../../constants/colors';
 
 const StyledUser = styled.div`
 	display: flex;
@@ -20,19 +20,7 @@ const StyledUser = styled.div`
 		background-color: ${COLORS_USER_CARD.pastelBlue};
 	}
 	&:hover {
-		top: -0.4rem;
-		border: 1px inset black;
-		&::before {
-			content: '';
-			width: 100%;
-			height: 100%;
-			background-color: ${COLORS.textColor};
-			position: absolute;
-			top: 0.4rem;
-			right: 0;
-			border-radius: 13px;
-			z-index: -1;
-		}
+		outline: 1px solid black;
 	}
 `;
 

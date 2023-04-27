@@ -6,18 +6,23 @@ export const useApi = () => {
 		'http://localhost:3000/api/users/'
 	);
 
-	const [dataUser, setDataUser] = useState('');
-	const [urlToFetchUser, setUrlToFetchUser] = useState('');
-
 	useEffect(() => {
 		fetchData(urlToFetch, setData);
 	}, [urlToFetch]);
 
+	const [dataUser, setDataUser] = useState([]);
+	const [urlToFetchUser, setUrlToFetchUser] = useState('');
+
+	useEffect(() => {
+		fetchData(urlToFetchUser, setDataUser);
+	}, [urlToFetchUser]);
+
 	const fetchData = async (url, setData) => {
 		const response = await fetch(url);
 		const data = await response.json();
+		console.log(data);
 		setData(data);
 	};
 
-	return { data, fetchData, setDataUser, dataUser, setUrlToFetchUser };
+	return { data, setUrlToFetch, setUrlToFetchUser, dataUser };
 };
