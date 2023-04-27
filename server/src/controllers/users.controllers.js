@@ -103,8 +103,9 @@ controller.patchUser = (req, res) => {
         
         fs.writeFile(usersFile, JSON.stringify(jsonData), err=> {
             if(err) return res.status(500).send({message:'Error al guardar el usuario'})
-            return res.status(200).send({message:'Usuario actualizado'})
+            res.status(200).send(jsonData)
         })
+
 
     })
 }

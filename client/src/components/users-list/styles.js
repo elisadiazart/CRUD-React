@@ -9,6 +9,7 @@ const StyledUser = styled.div`
 	border-radius: 13px;
 	justify-content: space-between;
 	position: relative;
+	width: 570px;
 	cursor: pointer;
 	&:nth-child(4n + 2) {
 		background-color: ${COLORS_USER_CARD.pastelYellow};
@@ -28,6 +29,7 @@ const StyledUsers = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 0.8rem;
+	position: relative;
 `;
 
 const StyledIcon = styled.img`
@@ -63,6 +65,7 @@ const StyledUserContainer = styled.div`
 const StyledButtons = styled.div`
 	display: flex;
 	gap: 1rem;
+	align-items: center;
 `;
 
 const StyledOnline = styled.p`
@@ -74,7 +77,22 @@ const StyledOnline = styled.p`
 
 const StyledTrash = styled.img`
 	width: 25px;
+	height: 25px;
 	cursor: pointer;
+`;
+
+const StyledContainer = styled.div`
+	position: relative;
+	width: 350px;
+	margin-left: 2rem;
+`;
+
+const StyledImage = styled.img`
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	bottom: -3px;
+	right: -1rem;
 `;
 
 export {
@@ -87,5 +105,7 @@ export {
 	StyledUserContainer,
 	StyledButtons,
 	StyledOnline,
-	StyledTrash
+	StyledTrash,
+	StyledContainer,
+	StyledImage
 };

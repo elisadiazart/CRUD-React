@@ -1,5 +1,3 @@
-
-import { useApi } from '../../hooks/useApi';
 import {
 	StyledUser,
 	StyledImage,
@@ -11,26 +9,21 @@ import {
 	StyledText
 } from './styles';
 
-const UserDetails = () => {
-	const { dataUser} = useApi();
-	
-	if (dataUser.length === 0) return <h1>No data</h1>;
-	
-
-	
+const UserDetails = ({ user }) => {
 	return (
-		<StyledUser >
+		<StyledUser>
 			<StyledDiv>
-			<StyledImage src={dataUser.profileImage} alt='' />
-			<StyledUserData>
-				<StyledUserName>@{dataUser.username
-}</StyledUserName>
-				<StyledOnline>{dataUser.active ? 'Online' : 'Offline'}</StyledOnline>
-			</StyledUserData>
+				<StyledImage src={user.profileImage} alt='' />
+				<StyledUserData>
+					<StyledUserName>@{user.username}</StyledUserName>
+					<StyledOnline online={user.active ? 'lime' : 'red'}>
+						{user.active ? 'Online' : 'Offline'}
+					</StyledOnline>
+				</StyledUserData>
 			</StyledDiv>
-			<StyledName>{dataUser.name}</StyledName>
-			<StyledText>{dataUser.email}</StyledText>
-			<StyledText>{dataUser.age}años</StyledText>
+			<StyledName>{user.name}</StyledName>
+			<StyledText>{user.email}</StyledText>
+			<StyledText>{user.age} años</StyledText>
 		</StyledUser>
 	);
 };

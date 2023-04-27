@@ -11,15 +11,8 @@ const StyledDiv = styled.div`
 	justify-content: space-between;
 `;
 
-const StyledContainer = styled.div`
-	position: relative;
-`;
 
-const StyledImage = styled.img`
-	position: absolute;
-	width: 150px;
-	bottom: 0;
-	right: 0;
-`;
 
-export { StyledMain, StyledDiv, StyledContainer, StyledImage };
+
+
+export { StyledMain, StyledDiv};

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { COLORS_USER_CARD } from '../../constants/colors';
 const StyledUser = styled.div`
 	border: 1.5px solid black;
-	border-radius: 13px;
+	border-radius: 14px;
 	padding: 1rem 1rem;
 	position: relative;
+	width: 100%;
 
 	&::after {
 		content: '';
@@ -51,7 +51,7 @@ const StyledOnline = styled.p`
 		content: '';
 		width: 8px;
 		height: 8px;
-		background-color: ${COLORS_USER_CARD.pastelGreen};
+		background-color: ${({ online }) => online};
 		border-radius: 50%;
 		position: absolute;
 		transform: translate(0%, -50%);
@@ -85,7 +85,7 @@ const StyledUserName = styled.p`
 const StyledDiv = styled.div`
 	display: flex;
 	align-items: flex-start;
-	gap: 2rem;
+	gap: 1rem;
 `;
 
 const StyledName = styled.h2`
