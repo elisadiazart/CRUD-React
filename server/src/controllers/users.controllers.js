@@ -42,11 +42,13 @@ controller.createUser = (req, res) => {
 
         newData.userId = v4()
 
+    
+
         jsonData.push(newData)
 
     fs.writeFile(usersFile, JSON.stringify(jsonData), err=> {
         if(err) return res.status(500).send({message:'Error al guardar el usuario'})
-        res.end()
+        res.status(200).send(jsonData)
     })
 })}
 
@@ -67,7 +69,7 @@ controller.deleteUser = (req, res) => {
 
         fs.writeFile(usersFile, JSON.stringify(jsonData), err=> {
             if(err) return res.status(500).send({message:'Error al guardar el usuario'})
-            res.end()
+            res.status(200).send(jsonData)
         })
 
     })

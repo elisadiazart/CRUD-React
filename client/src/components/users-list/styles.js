@@ -21,7 +21,7 @@ const StyledUser = styled.div`
 		background-color: ${COLORS_USER_CARD.pastelBlue};
 	}
 	&:hover {
-		outline: 1px solid black;
+		outline: 1.5px solid black;
 	}
 `;
 
@@ -79,6 +79,7 @@ const StyledTrash = styled.img`
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
+
 `;
 
 const StyledContainer = styled.div`

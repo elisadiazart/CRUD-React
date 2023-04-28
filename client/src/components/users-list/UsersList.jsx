@@ -16,18 +16,15 @@ import {
 } from './styles';
 import UserDetails from '../user-details/UserDetails';
 import UserEdit from '../user-edit/UserEdit';
+import UserCreate from '../user-create/UserCreate';
 
-const UsersList = () => {
+const UsersList = ({ setMode, mode }) => {
 	const [users, setUsers] = useState([]);
-	const [showDetails, setShowDetails] = useState(false);
-	const [showEdit, setShowEdit] = useState(false);
 	const [currentUser, setCurrentUser] = useState(null);
 
 	useEffect(() => {
 		getAllUsers(setUsers);
 	}, []);
-
-	console.log(users);
 
 	if (users.length === 0) return <h1>No results found</h1>;
 
@@ -47,28 +44,35 @@ const UsersList = () => {
 							<StyledOnline>{user.active ? 'Online' : 'Offline'}</StyledOnline>
 							<ButtonUser
 								handleClick={() => {
-									setShowDetails(true);
-									setShowEdit(false);
+									setMode('details');
 									setCurrentUser(user);
 								}}
 								text='Details'
 							/>
 							<ButtonUser
 								handleClick={() => {
-									setShowEdit(true);
-									setShowDetails(false);
+									setMode('edit');
 									setCurrentUser(user);
 								}}
 								text='Edit'
 							/>
-							<StyledTrash src='../../../public/trash-duotone.svg' alt='' />
+							<StyledTrash
+								src='../../../public/trash-duotone.svg'
+								alt=''
+								onClick={() => deleteUser(user.userId, setUsers)}
+							/>
 						</StyledButtons>
 					</StyledUser>
 				))}
 			</StyledUsers>
 			<StyledContainer>
-				{showDetails && <UserDetails user={currentUser} />}
-				{showEdit && <UserEdit id={currentUser.userId} setUsers={setUsers} />}
+				{mode === 'details' && <UserDetails user={currentUser} />}
+				{mode === 'edit' && (
+					<UserEdit id={currentUser.userId} setUsers={setUsers} />
+				)}
+				{mode === 'create' && (
+					<UserCreate setUsers={setUsers} setMode={setMode} />
+				)}
 				<StyledImage src='../../../public/Recurso 1.svg' alt='' />
 			</StyledContainer>
 		</>
@@ -78,7 +82,23 @@ const UsersList = () => {
 const getAllUsers = async setUsers => {
 	const response = await fetch('http://localhost:3000/api/users/');
 	const data = await response.json();
-	console.log(data);
+	setUsers(data);
+};
+
+const fetchData = async (url, ...options) => {
+	const response = await fetch(url, ...options);
+	const data = await response.json();
+	return data;
+};
+
+const deleteUser = async (id, setUsers) => {
+	const data = await fetchData(`http://localhost:3000/api/users/${id}`, {
+		method: 'DELETE',
+		headers: {
+			Accept: 'application/json'
+		}
+	});
+
 	setUsers(data);
 };
 

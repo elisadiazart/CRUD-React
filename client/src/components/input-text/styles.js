@@ -46,6 +46,15 @@ const StyledDiv = styled.div`
         }
     }
 
+    &:nth-child(5){
+        &::after{
+            content: 'Username';
+        }
+        &::before{
+            width: 85px;
+        }
+    }
+
     &::before{
         content: '';
         position: absolute;

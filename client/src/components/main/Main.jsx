@@ -1,11 +1,11 @@
 import UsersList from '../users-list/UsersList';
 import { StyledMain, StyledDiv } from './styles';
 
-const Main = () => {
+const Main = ({ setMode, mode }) => {
 	return (
 		<StyledMain>
 			<StyledDiv>
-				<UsersList />
+				<UsersList setMode={setMode} mode={mode} />
 			</StyledDiv>
 		</StyledMain>
 	);

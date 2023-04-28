@@ -34,7 +34,7 @@ const UserEdit = ({ id, setUsers }) => {
 			/>
 			<StyledSubmit
 				type='submit'
-				onClick={e => patchUser(id, userNewData, setUsers)}
+				onClick={() => patchUser(id, userNewData, setUsers)}
 			/>
 		</StyledForm>
 	);

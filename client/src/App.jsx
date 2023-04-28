@@ -1,13 +1,11 @@
-import Header from './components/header/Header';
-import Main from './components/main/Main';
+import BodyContainer from './components/body-container/BodyContainer';
 import { GlobalStyles } from './styles/GlobalStyles';
 
 const App = () => {
 	return (
 		<>
 			<GlobalStyles />
-			<Header />
-			<Main />
+			<BodyContainer />
 		</>
 	);
 };
