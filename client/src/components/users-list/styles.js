@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { COLORS_USER_CARD } from '../../constants/colors';
 
 const StyledUser = styled.div`
@@ -23,6 +23,15 @@ const StyledUser = styled.div`
 	&:hover {
 		outline: 1.5px solid black;
 	}
+
+	${props => {
+		switch (props.variant) {
+			case 'selected':
+				return css`
+					transform: translateY(1rem);
+				`;
+		}
+	}}
 `;
 
 const StyledUsers = styled.div`
